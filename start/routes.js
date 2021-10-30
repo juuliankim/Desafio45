@@ -16,10 +16,6 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.group(()=> {
-    Route.get('listar','ProductoController.listar')
-    Route.get('listar/:id','ProductoController.buscarPorId')
-    Route.post('guardar','ProductoController.guardar')   
-    Route.put('actualizar/:id','ProductoController.actualizar')
-    Route.delete('borrar/:id','ProductoController.borrar')
-}).prefix('productos');
+Route.group(() => {
+    Route.resource('productos', 'ProductoController')
+  }).prefix('api')
